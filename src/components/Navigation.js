@@ -6,10 +6,17 @@ import {
 	StyledNavigationList as NavigationList
 } from "baseui/header-navigation";
 import { Button } from "baseui/button";
+import { useStyletron } from "baseui";
 
 function Navigation() {
+	const [css, theme] = useStyletron();
 	return (
-		<header>
+		<header
+			className={css({
+				background: theme.colors.negative,
+				color: theme.colors.primaryB
+			})}
+		>
 			<HeaderNavigation>
 				<NavigationList $align={ALIGN.left}>
 					<NavigationItem>Joshua Rieth</NavigationItem>
@@ -17,7 +24,7 @@ function Navigation() {
 				<NavigationList $align={ALIGN.center} />
 				<NavigationList $align={ALIGN.right}>
 					<NavigationItem style={{ paddingRight: "15px" }}>
-						<Button>Contact</Button>
+						<Button disabled>Contact</Button>
 					</NavigationItem>
 				</NavigationList>
 			</HeaderNavigation>
