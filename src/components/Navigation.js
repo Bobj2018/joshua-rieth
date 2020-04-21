@@ -4,8 +4,8 @@ function Navigation() {
 	let [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<nav className="items-center w-full h-10 bg-red-800 shadow-lg  sm:flex sm:justify-between">
-			<div className="flex items-center justify-between h-full text-white">
+		<nav className="items-center w-full h-10 m-auto bg-red-800 shadow-lg sm:flex sm:justify-between  sm:w-2/3">
+			<div className="flex items-center justify-between h-full text-white ">
 				<div className="px-4 ">
 					<h1 className="text-lg font-bold">Joshua Rieth</h1>
 				</div>

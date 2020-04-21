@@ -2,7 +2,7 @@ import React from 'react';
 import headshot from '../img/joshua-rieth.jpg';
 function Hero() {
 	return (
-		<div className="p-4 md:flex md:justify-evenly md:items-center lg:px-1/5">
+		<div className="p-4 sm:w-2/3 md:flex md:justify-evenly md:items-center sm:m-auto">
 			<div className="relative w-4/5 m-auto overflow-hidden bg-white border rounded-lg rounded-full pb-4/5 md:hidden ">
 				<img
 					className="absolute object-cover w-full h-full m-auto "
