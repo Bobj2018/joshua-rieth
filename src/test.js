@@ -1,5 +1,5 @@
-function donut(type) {
-	return 'The ' + type + ' donut is yummy!';
-}
+const captureWebsite = require('capture-website');
 
-console.log(donut('strawberry'));
+(async () => {
+	await captureWebsite.file('https://sleep-tracker.now.sh/', 'src/img/sleep.png');
+})();

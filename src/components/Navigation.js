@@ -4,7 +4,7 @@ function Navigation() {
 	let [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<nav className=" items-center w-full h-10 bg-red-800 shadow-lg sm:flex sm:justify-between">
+		<nav className="items-center w-full h-10 bg-red-800 shadow-lg  sm:flex sm:justify-between">
 			<div className="flex items-center justify-between h-full text-white">
 				<div className="px-4 ">
 					<h1 className="text-lg font-bold">Joshua Rieth</h1>
@@ -39,9 +39,9 @@ function Navigation() {
 					<a className="block px-2 rounded-full sm:px-2 hover:bg-red-700" href="/">
 						Home
 					</a>
-					<a className="block px-2 mt-1 rounded-full sm:px-2 sm:mt-0 hover:bg-red-700" href="/">
+					{/* <a className="block px-2 mt-1 rounded-full sm:px-2 sm:mt-0 hover:bg-red-700" href="/">
 						About
-					</a>
+					</a> */}
 				</div>
 			</div>
 		</nav>
