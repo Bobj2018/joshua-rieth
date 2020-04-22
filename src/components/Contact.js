@@ -70,7 +70,7 @@ function Contact() {
 
 	return (
 		<div className="px-10 py-4 m-auto bg-white sm:shadow-lg sm:w-2/3">
-			<h1 className="w-full text-3xl font-bold ">Contact</h1>
+			<h2 className="w-full text-3xl font-bold ">Contact</h2>
 			<hr className="w-10 my-2 border-t-2 border-red-600" />
 			<form className="flex flex-col" method="POST">
 				<label className="font-semibold" htmlFor="name">
@@ -82,12 +82,14 @@ function Contact() {
 					name="name"
 					value={email.name}
 					onChange={handleChange}
+					id="name"
 				/>
 
 				<label className="font-semibold" htmlFor="email">
 					Email
 				</label>
 				<input
+					id="email"
 					className="p-1 border border-gray-700 rounded"
 					type="email"
 					name="email"
@@ -99,6 +101,7 @@ function Contact() {
 					Message
 				</label>
 				<textarea
+					id="message"
 					className="p-1 border border-gray-700 rounded"
 					name="message"
 					rows="3"
@@ -106,15 +109,24 @@ function Contact() {
 					onChange={handleChange}
 				></textarea>
 
-				{confirmMessage()}
+				<div role="alert" aria-live="assertive">
+					{confirmMessage()}
+				</div>
 
-				<input
-					className={`w-32 py-1 mt-3 font-semibold text-white bg-red-700 rounded-full  focus:outline-none  ${
-						isSent ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:bg-red-900'
-					}`}
-					type="submit"
-					onClick={handleSubmit}
-				/>
+				{isSent ? (
+					<input
+						className="w-32 py-1 mt-3 font-semibold text-white bg-red-700 rounded-full opacity-50 cursor-not-allowed focus:border-black focus:border-8"
+						type="submit"
+						disabled
+						onClick={handleSubmit}
+					/>
+				) : (
+					<input
+						className="w-32 py-1 mt-3 font-semibold text-white bg-red-700 rounded-full cursor-pointer hover:bg-red-900"
+						type="submit"
+						onClick={handleSubmit}
+					/>
+				)}
 			</form>
 		</div>
 	);

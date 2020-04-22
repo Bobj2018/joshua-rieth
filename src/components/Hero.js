@@ -20,7 +20,9 @@ function Hero() {
 
 			<div className="h-full p-5 mt-1 text-center md:w-1/2 md:m-0 md:p-0">
 				<h2 className="text-3xl font-semibold leading-tight">Joshua Rieth</h2>
-				<p className="text-gray-600">Full Stack Developer &bull; Computer Science</p>
+				<p className="text-gray-600" aria-label="Full Stack Developer and Computer Science">
+					Full Stack Developer &bull; Computer Science
+				</p>
 
 				{/* <div className="flex items-baseline justify-center pt-3 md:items-center">
 					<p className="px-2 text-xs font-bold text-white uppercase bg-red-700 rounded-full">Status</p>{' '}
