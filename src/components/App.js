@@ -1,11 +1,20 @@
 import React from 'react';
 import Navigation from './Navigation';
-import Hero from './Hero';
-import About from './About';
-import Portfolio from './Portfolio';
-import Contact from './Contact';
+import { Switch, Route } from 'react-router-dom';
+import HomePage from './HomePage';
+
+import ReactGA from 'react-ga';
+import { useEffect } from 'react';
+
+const GOOGLE_ID = process.env.REACT_APP_GOOGLE_ID;
 
 function App() {
+	ReactGA.initialize(GOOGLE_ID);
+
+	useEffect(() => {
+		ReactGA.pageview(window.location.pathname + window.location.search);
+	});
+
 	return (
 		<div id="app" className="w-screen h-screen overflow-x-hidden bg-gray-200">
 			<ul className="fixed z-50 p-0 m-2 font-bold" tabIndex="0">
@@ -32,20 +41,10 @@ function App() {
 			<header className="sticky z-10 bg-red-800" role="banner">
 				<Navigation />
 			</header>
-			<main role="main" id="main">
-				<section className="w-full bg-white ">
-					<Hero />
-				</section>
-				<section className="w-full py-4 bg-white">
-					<About />
-				</section>
-				<section className="w-full py-4 bg-white">
-					<Portfolio />
-				</section>
-				<section className="w-full py-4 bg-white">
-					<Contact />
-				</section>
-			</main>
+
+			<Switch>
+				<Route path="/" component={HomePage} />
+			</Switch>
 		</div>
 	);
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import ReactGA from 'react-ga';
 
 function Contact() {
 	const [email, setEmail] = useState({
@@ -13,6 +14,14 @@ function Contact() {
 	const [isNotSuccess, setIsNotSuccess] = useState(false);
 	const [noValue, setNoValue] = useState(0);
 
+	const Event = (category, action, label) => {
+		ReactGA.event({
+			category: category,
+			action: action,
+			label: label,
+		});
+	};
+
 	function handleChange(e) {
 		setEmail({
 			...email,
@@ -22,9 +31,11 @@ function Contact() {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		const templateId = 'template_5DDR982y';
+		const templateId = process.env.REACT_APP_TEMPLATE_ID;
+		console.log(templateId);
 
 		if (email.email || email.message || email.name) {
+			Event('CONTACT', 'Contact button is pressed', 'CONTACT_FORM');
 			sendMessage(templateId, { message_html: email.message, from_name: email.name, reply_to: email.email });
 			setNoValue(0);
 		} else {
@@ -39,6 +50,7 @@ function Contact() {
 			.send('gmail', templateId, variables)
 			.then((res) => {
 				console.log('Email successfully sent!');
+				Event('CONTACT', 'Message is successful', 'CONTACT_FORM');
 				setTimeout(() => {
 					setIsSuccess(true);
 				}, 800);
@@ -48,6 +60,7 @@ function Contact() {
 				console.error('Oh well, you failed. Here some thoughts on the error that occured:', err);
 				setTimeout(() => {
 					setIsNotSuccess(true);
+					Event('CONTACT', "Message is wasn't successful", 'CONTACT_FORM');
 				}, 800);
 			});
 	}

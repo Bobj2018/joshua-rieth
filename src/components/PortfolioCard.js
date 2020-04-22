@@ -2,8 +2,6 @@ import React from 'react';
 import ProjectBuiltWith from './ProjectBuiltWith';
 
 function PortfolioCard({ project }) {
-	console.log(project);
-
 	return (
 		<div className="lg:px-10 lg:w-1/2">
 			<img className="w-full mt-4" src={require(`../img/${project.img}`)} alt={project.desc} />
