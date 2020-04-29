@@ -8,7 +8,7 @@ function About() {
 
 			<p className="font-medium">
 				Hello! I'm Joshua, a freelance Web Developer based in Henry County, KY. My goal is to build applications
-				that is accessible to everyone!
+				that are accessible to everyone!
 			</p>
 		</div>
 	);
